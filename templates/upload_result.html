@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        img {
+            max-width: 300px;
+            max-height: 300px;
+            margin-top: 20px;
+        }
+        a {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Result</h1>
+    <p>Uploaded file: {{ filename }}</p>
+    <p>Classifications:</p>
+    <ul>
+    {% for classification in classifications %}
+        <li>{{ classification }}</li>
+    {% endfor %}
+    </ul>
+    <p>Dominant Color: {{ color }}</p>
+    <img src="{{ url_for('static', filename='clothes/' + filename) }}" alt="Uploaded clothing item">
+    <br>
+    <a href="{{ url_for('index') }}">Go to Recommender</a>
+</body>
+</html>
